@@ -51,6 +51,13 @@ const getBookByName = (req, res) => {
 
 const addBook = (req, res) => {
     const newBook = req.body;
+    if (req.file) {
+        newBook.cover = req.file.filename; // Asigna el nombre del archivo subido
+    } else {
+        console.log('You don\'t uploaded any file!');
+
+    }
+
     Books.addBook(newBook, (err, result) => {
         if (err) {
             console.error('There was some bug!:', err);
@@ -58,7 +65,7 @@ const addBook = (req, res) => {
         }
         res.status(201).send({ message: 'Book added successfully', bookId: result.insertId });
     });
-}
+};
 
 const burnBook = (req, res) => {
     const bookId = req.params.id;
@@ -90,16 +97,6 @@ const modernizeBook = (req, res) => {
         }
         res.status(200).json({ message: 'Book updated successfully' });
     });
-}
-
-const uploadFile = (req, res) => {
-    if (!req.file) {
-        res.status(400).json({ message: 'No file uploaded' });
-        return;
-    }
-    const file = {
-        cover: req.file.filename,
-    }
 }
 
 module.exports = {

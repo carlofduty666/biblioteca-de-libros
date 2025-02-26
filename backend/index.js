@@ -7,9 +7,6 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const booksRoutes = require('./routes/books.routes');
-
-const Books = require('./models/books.model');
-const upload = require('./middlewares/upload');
 const request = require('http');
 
 
