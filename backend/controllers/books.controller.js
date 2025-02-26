@@ -92,6 +92,16 @@ const modernizeBook = (req, res) => {
     });
 }
 
+const uploadFile = (req, res) => {
+    if (!req.file) {
+        res.status(400).json({ message: 'No file uploaded' });
+        return;
+    }
+    const file = {
+        cover: req.file.filename,
+    }
+}
+
 module.exports = {
     getAllBooks,
     getBookById,
