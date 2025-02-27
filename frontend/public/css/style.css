@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0c0a;
+}
+
+html {
+    font-family: "Inter Tight", serif;
+    color: #ffffff;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.side-bar{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.side-bar a {
+    color: #adadad;
+    text-decoration: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
