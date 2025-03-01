@@ -6,6 +6,7 @@
 
 body {
     background: #0a0c0a;
+    font-family: "Inter Tight", serif;
 }
 
 html {
@@ -20,16 +21,275 @@ html {
 }
 
 .side-bar{
+    width: 32rem;
+    height: 100vh;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 2rem;
 }
 
-.side-bar a {
+.subtitle p{
+    font-style: italic;
     color: #adadad;
+}
+
+.div-border{
+    height: inherit;
+    background-color: #adadad;
+    padding: .5px;
+    
+}
+
+.add-button{
+    position: fixed;
+    top: 85%;
+    left: 45%;
+}
+
+button {
+    color: #0a0c0a;
+    background-color: #adadad;
+    text-decoration: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: .3rem;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #343534;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.add-button a {
+    color: #0a0c0a;
+    background-color: #adadad;
     text-decoration: none;
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    padding: .5rem;
+    border-radius: .3rem
+}
+
+a:hover {
+    background-color: #343534;
+    border-radius: .3rem;
+}
+
+.bookshelf {
+    width: 100%;
+    padding:2rem
+}
+
+.bookshelf-title {
+    display: flex;
+    justify-content: center
+}
+
+input {
+    min-width: 1px !important;
+    width: 100%;
+    height: 3rem;
+    border: none;
+    outline: none; 
+    background-color: inherit;
+    color: #b0b3b8;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: .5rem;
+    font-family: "Inter Tight", serif;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #0a0c0a;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #2f2f2f;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    /* font-family: "Inter Tight", serif; */
+}
+
+.close {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form h2{
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
+
+form label {
+    padding: 0.5rem;
+    font-style: italic;
+    color: #b0b3b8;
+}
+
+.card{
+	height: 400px;
+	width: 300px;
+	border: 0px solid black;
+	background-image: url(https://www.kayak.co.uk/news/wp-content/uploads/sites/5/2022/12/DEST_JAPAN_FUJI-MOUNTAIN_GettyImages-822273028.jpg);
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px;
+	background-color: black;
+	box-shadow: 0 0 30px rgba(0,0,0,.7);
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	place-items: center;
+	overflow: hidden;
+	transition: 0.3s;
+	transform: scale(0.8);
+}
+.card:hover{
+	transform: scale(0.9,0.9);
+	box-shadow: 0 0 60px rgba(0,0,0,.7);
+}
+.card h1{
+	font-family: space grotesk;
+	color: white;
+	mix-blend-mode: none;
+	text-shadow: 0 0 20px black;
+	font-size: 90px;
+	margin: 0;
+}
+.card .bottom{
+	height: 200px;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,.0), rgba(0,0,0,.6), rgba(0,0,0,.9), rgba(0,0,0,.9), rgba(0,0,0,.9));
+	-webkit-backdrop-filter: blur(0px);
+	border-radius: 0px 0px 20px 20px;
+	display: flex;
+	place-items: end;
+	box-sizing: border-box;
+	padding: 20px;
+	justify-content: space-between;
+}
+
+.flagger{
+	height: 110px;
+	min-width: 100px;
+	max-width: 100px;
+	background-image: linear-gradient(45deg, rgba(50,205,50, .0), rgba(0,255,0,.8));
+	border-radius: 10px;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 5px;
+}
+.flagger svg{
+	height: 25px;
+	width: 25px;
+	fill: white;
+	margin-right: 7px;
+}
+.flagger .flag{
+	width: 100%;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+.flagger p.rating{
+	margin-top: 0px;
+	color: white;
+	font-family: poppins;
+	font-size: 1.5em;
+	margin-bottom: 0;
+	width: 100%;
+	overflow: hidden;
+	font-weight: 700;
+	text-shadow: 0 0 10px rgba(0,0,0,.3);
+	display: flex;
+	justify-content: center;
+	place-items: center;
+}
+.bottom .text{
+	width: 145px;
+	height: 110px;
+	background: transparent;
+	overflow: hidden;
+}
+.bottom .text p{
+	margin: 0;
+	font-family: space grotesk;
+	color: white;
+	font-weight: 700;
+	font-size: .9em;
+	opacity: 1;
+}
+.bottom .text button{
+	width: 145px;
+	height: 35px;
+	border-radius:10px;
+	border: 0;
+	font-family: space grotesk;
+	text-transform: uppercase;
+	color: white;
+	font-size: .9em;
+	font-weight: 600;
+	background-color: transparent;
+	background-size: 100% 100%;
+	background-image: linear-gradient(45deg, rgba(255,40,0,.8), rgba(255,40,0,.8), rgba(255,69,0,.0));
+	transition: 0.3s;
+}
+.bottom .text button:hover{
+	background-size: 200% 200%;
+	cursor: pointer;
+}
+.bottom .text .line{
+	width: 100%;
+	height: 3px;
+	margin: 8px 0px;
+	background-image: linear-gradient(90deg, rgba(0,0,0,0), white, rgba(0,0,0,0));
+}
+
+.card.second{
+	background-image: url(https://static.independent.co.uk/2024/11/27/16/iStock-875273240.jpg?width=1200&height=900&fit=crop);
+	margin-left: 20px;
+}
+
+.card.third{
+	background-image: url(https://h2.gifposter.com/bingImages/TajMahalReflection_1920x1080.jpg);
+	margin-left: 20px;
 }

@@ -54,7 +54,7 @@ const addBook = (req, res) => {
     if (req.file) {
         newBook.cover = req.file.filename; // Asigna el nombre del archivo subido
     } else {
-        console.log('You don\'t uploaded any file!');
+        console.log('You didn\'t upload any file!');
 
     }
 
@@ -85,6 +85,15 @@ const burnBook = (req, res) => {
 
 const modernizeBook = (req, res) => {
     const updatedBook = req.body;
+    
+    // Verificar si se ha subido un archivo
+    if (req.file) {
+        updatedBook.cover = req.file.filename; // Asigna el nombre del archivo subido
+    } else {
+        // No hacer nada si no se envía un archivo
+        // Esto asegura que el campo cover no se actualice con undefined
+    }
+
     Books.modernizeBook(updatedBook, (err, result) => {
         if (err) {
             console.error(err);
@@ -97,7 +106,8 @@ const modernizeBook = (req, res) => {
         }
         res.status(200).json({ message: 'Book updated successfully' });
     });
-}
+};
+
 
 module.exports = {
     getAllBooks,
