@@ -23,9 +23,23 @@ function getBooks() {
     .then(res => res.json())
     .then(data => {
         data.forEach(book => {
+            document.getElementsByClassName('books')[0].style = "display: flex; flex-wrap: wrap" ;
             document.getElementById('data').innerHTML += `
-            <p>${book.title}</p>
-            <img src="/uploads/${book.cover}" alt="${book.title}" width="90" height="90">
+                <div class="card" style="background-image: url('http://localhost:3000/uploads/${book.cover}')" >
+                <h1 class="name">
+                    ${book.author}
+                </h1>
+                <div class="bottom">
+                    <div class="flagger">
+                        <h4>${book.genre}</h4>	
+                    </div>
+                    <div class="text">
+                        <p>${book.title}</p>
+                        <div class="line"></div>
+                        <button>${book.publish_date}</button>
+                    </div>
+                </div>
+            </div>
             `
         })
     })
