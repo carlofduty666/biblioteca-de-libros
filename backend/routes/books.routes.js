@@ -24,7 +24,7 @@ router.post('/books', upload.single('cover'), booksController.addBook);
 
 router.delete('/books/id/:id', booksController.burnBook);
 
-router.put('/books', booksController.modernizeBook);
+router.put('/books/id/:id', upload.single('cover'), booksController.modernizeBook);
 
 
 module.exports = router;

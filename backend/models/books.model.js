@@ -62,8 +62,13 @@ const Books = {
         consult += ' WHERE id = ?';
         params.push(book.id);
     
+        // Log para depurar
+        console.log('Generated SQL:', consult);
+        console.log('Parameters:', params);
+    
         return db.query(consult, params, callback);
     }
+    
     
 }
 

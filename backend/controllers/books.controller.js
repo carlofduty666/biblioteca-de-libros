@@ -84,15 +84,21 @@ const burnBook = (req, res) => {
 }
 
 const modernizeBook = (req, res) => {
+    const bookId = req.params.id; // Obtén el ID del libro desde la ruta
     const updatedBook = req.body;
-    
+
     // Verificar si se ha subido un archivo
     if (req.file) {
         updatedBook.cover = req.file.filename; // Asigna el nombre del archivo subido
-    } else {
-        // No hacer nada si no se envía un archivo
-        // Esto asegura que el campo cover no se actualice con undefined
     }
+
+    // Verificar que haya campos para actualizar
+    if (!updatedBook.title && !updatedBook.author && !updatedBook.genre && !updatedBook.publish_date && !req.file) {
+        return res.status(400).json({ message: 'No fields to update' });
+    }
+
+    // Asigna el ID del libro a updatedBook
+    updatedBook.id = bookId;
 
     Books.modernizeBook(updatedBook, (err, result) => {
         if (err) {
@@ -107,6 +113,8 @@ const modernizeBook = (req, res) => {
         res.status(200).json({ message: 'Book updated successfully' });
     });
 };
+
+
 
 
 module.exports = {
